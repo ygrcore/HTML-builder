@@ -10,9 +10,6 @@ const pathTo = path.join(__dirname, 'project-dist', 'bundle.css');
 
 async function mergeStyles(src, dest) {
   try {
-    if (fs.existsSync(dest)) {
-      await fs.promises.unlink(dest);
-    }
     let data = '';
     let files = await readdir(src, {withFileTypes: true});
     files = files.filter(item => path.extname(item.name) === '.css');
